@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  name: palabras-contar-repeticiones.dominio.com.co
+  namespace: default
+spec:
+  rules:
+    - host: palabras-contar-repeticiones.dominio.com.co
+      http:
+        paths:
+          - backend:
+              serviceName: palabras-contar-repeticiones
+              servicePort: 80
+            path: /
+

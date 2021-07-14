@@ -1,0 +1,41 @@
+<div mat-dialog-content>
+  <form class="register-form m-4" [formGroup]="form">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+        <mat-form-field class="ats-full-width" appearance="outline">
+          <label>Texto *</label>
+          <textarea matInput formControlName="texto" [(ngModel)]="request.texto"></textarea>
+          <mat-error *ngIf="form.get('texto').hasError('required')">
+            El campo Texto es requerido.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+        <mat-form-field class="ats-full-width" appearance="outline">
+          <label>Palabra a buscar *</label>
+          <input matInput formControlName="palabra">
+          <mat-error *ngIf="form.get('palabra').hasError('required')">
+            El campo Palabra a buscar es requerido.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+        {{resultado}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+        <div class="example-button-row">
+          <button mat-raised-button color="primary" (click)="procesar()"
+            matTooltip="Contar repeteiciones">Contar</button>
+          <button mat-raised-button color="warn" (click)="limpiarCampos()" tabindex="-1"
+            matTooltip="Limpiar campos">Limpiar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
